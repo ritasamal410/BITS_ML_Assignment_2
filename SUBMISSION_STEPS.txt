@@ -1,0 +1,31 @@
+BITS M.Tech AIML – ML Assignment 2 submission workflow
+
+1. Upload/extract this folder in BITS Virtual Lab.
+2. Open a terminal in the project folder.
+3. Run: python -m pip install -r requirements.txt
+4. Run: python train_models.py
+   - This downloads UCI Dry Bean, trains five models, saves model files,
+     creates test_data.csv, metrics_summary.csv and model_metadata.json.
+5. Open metrics_summary.csv. Use the actual values to complete the README table.
+6. Write your own observations for all five models and explain the overall winner.
+7. Run: streamlit run app.py
+8. In the browser, upload test_data.csv and test all five model choices.
+9. Take the required genuine screenshot in BITS Virtual Lab.
+10. Customize the app title, layout, explanatory text, and at least one visual
+    element so your work reflects your own design and understanding.
+11. Create your own GitHub repository and push the complete project.
+12. Deploy app.py using Streamlit Community Cloud and test the live public URL.
+13. Update README.md with your actual GitHub and Streamlit URLs.
+14. Create ONE final PDF in this order:
+    a. GitHub repository URL
+    b. Live Streamlit app URL
+    c. BITS Virtual Lab screenshot
+    d. Complete README content, including metrics and observations
+15. Submit the single PDF on the official BITS submission portal before the deadline.
+
+Important:
+- The assignment brief says the submission must be one PDF and requires the README
+  content in that PDF.
+- Do not invent the screenshot, repository URL, deployed app URL, or model metrics.
+- Assignment brief warns against direct copy-paste submissions. Understand, test,
+  and personalize the work before submission.
