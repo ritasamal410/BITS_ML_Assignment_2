@@ -184,4 +184,26 @@ https://github.com/ritasamal410/BITS_ML_Assignment_2
 
 The application has been successfully tested locally using Streamlit.
 
-**Live Streamlit Application URL:** To be added after deployme
+**Live Streamlit Application URL:** 
+https://bitsmlassignment2-djyek2wrzfe6mfdc4p5bdc.streamlit.app
+
+
+| ML Model Name          | Accuracy |    AUC | Precision | Recall | F1 Score |    MCC |
+| ---------------------- | -------: | -----: | --------: | -----: | -------: | -----: |
+| Logistic Regression    |   0.9207 | 0.9948 |    0.9349 | 0.9314 |   0.9329 | 0.9042 |
+| Decision Tree          |   0.8884 | 0.9531 |    0.9038 | 0.9041 |   0.9036 | 0.8652 |
+| K-Nearest Neighbors    |   0.9166 | 0.9833 |    0.9320 | 0.9271 |   0.9293 | 0.8992 |
+| Gaussian Naive Bayes   |   0.8979 | 0.9916 |    0.9112 | 0.9092 |   0.9091 | 0.8773 |
+| Support Vector Machine |   0.9221 | 0.9949 |    0.9359 | 0.9330 |   0.9343 | 0.9059 |
+
+## 13. Model Performance Observations
+
+- **Logistic Regression:** Achieved 92.07% accuracy and an F1 score of 0.9329, showing good classification performance.
+- **Decision Tree:** Achieved 88.84% accuracy, the lowest among the five models.
+- **K-Nearest Neighbors:** Achieved 91.66% accuracy and an F1 score of 0.9293, showing strong performance.
+- **Gaussian Naive Bayes:** Achieved 89.79% accuracy, although its AUC was relatively high at 0.9916.
+- **Support Vector Machine:** Achieved the highest accuracy, precision, recall, F1 score and MCC among the five models.
+
+## 14. Best-Performing Model
+
+Support Vector Machine (SVM) is the best-performing model. It achieved 92.21% accuracy, 0.9343 macro F1 score and 0.9059 MCC. These results indicate strong overall classification performance compared with the other four models.
