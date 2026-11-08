@@ -1,103 +1,187 @@
 # Dry Bean Variety Classification – Machine Learning Assignment 2
 
-> **Important:** This is a working project scaffold for learning and completion. Run it in BITS Virtual Lab, inspect the actual outputs, personalize the app, write your own observations, and add your real GitHub/Streamlit URLs and BITS Lab screenshot before submission. Do not submit placeholder links or invented metrics.
+## 1. Project Overview
 
-## a. Problem statement
+This project implements a multiclass machine-learning classification system to predict the variety of dry beans using numerical measurements extracted from bean images.
 
-Classify a dry bean sample into one of seven varieties using 16 numerical measurements extracted from bean images. Compare five classification algorithms using the same stratified train/test split and evaluate them using Accuracy, AUC, Precision, Recall, F1 and Matthews Correlation Coefficient (MCC).
+Five machine-learning algorithms are trained and evaluated using the same stratified training and testing dataset. Their performance is compared using Accuracy, AUC, Precision, Recall, F1 Score and Matthews Correlation Coefficient (MCC).
 
-## b. Dataset description
+An interactive Streamlit application is also developed to allow users to upload test datasets and evaluate the trained classification models.
 
-- **Dataset:** Dry Bean
-- **Source:** UCI Machine Learning Repository, dataset ID 602
-- **Dataset page:** https://archive.ics.uci.edu/dataset/602/dry+bean
-- **Instances:** 13,611
-- **Input features:** 16 numerical features
-- **Target:** `Class`
-- **Classes:** Seker, Barbunya, Bombay, Cali, Dermason, Horoz and Sira
-- **Missing values:** UCI describes the dataset as having no missing values.
-- **License:** CC BY 4.0; cite the UCI dataset when redistributing/using it.
+## 2. Problem Statement
 
-The features describe bean geometry and shape, including Area, Perimeter, MajorAxisLength, MinorAxisLength, AspectRatio, Eccentricity, ConvexArea, EquivDiameter, Extent, Solidity, Roundness, Compactness and four ShapeFactor measurements.
+Classify a dry bean sample into one of seven varieties using 16 numerical features describing its shape, size and geometric properties.
 
-**Dataset citation:** Dry Bean [Dataset]. (2020). UCI Machine Learning Repository. https://doi.org/10.24432/C50S4B.
+The objective is to compare five classification algorithms and identify the model that provides the strongest overall classification performance.
 
-## c. GitHub Repository Link
+## 3. Dataset Description
 
-**Add your actual public repository URL here after you create and push the project.**
+* **Dataset:** Dry Bean
+* **Source:** UCI Machine Learning Repository
+* **Dataset ID:** 602
+* **Total instances:** 13,611
+* **Input features:** 16 numerical features
+* **Target column:** Class
+* **Number of classes:** 7
+* **Missing values:** None reported in the dataset description.
 
-## d. Models used and evaluation
+The seven bean varieties are:
 
-All five models are trained on the same training split. A stratified 80:20 split with random state 42 is used. StandardScaler is included in pipelines for Logistic Regression, KNN, Gaussian Naive Bayes and SVM. The Decision Tree is trained without scaling.
+1. Seker
+2. Barbunya
+3. Bombay
+4. Cali
+5. Dermason
+6. Horoz
+7. Sira
 
-### Model comparison table
+The dataset contains measurements such as Area, Perimeter, MajorAxisLength, MinorAxisLength, AspectRatio, Eccentricity, ConvexArea, Solidity, Roundness, Compactness and ShapeFactor measurements.
 
-Run `python train_models.py`. Copy the values from the generated `metrics_summary.csv` into this table. These values must come from your own execution; do not guess or invent them.
+**Dataset Source:** https://archive.ics.uci.edu/dataset/602/dry+bean
 
-| ML Model Name | Accuracy | AUC (macro OVR) | Precision (macro) | Recall (macro) | F1 (macro) | MCC |
-|---|---:|---:|---:|---:|---:|---:|
-| Logistic Regression | Fill after run | Fill after run | Fill after run | Fill after run | Fill after run | Fill after run |
-| Decision Tree | Fill after run | Fill after run | Fill after run | Fill after run | Fill after run | Fill after run |
-| K-Nearest Neighbors | Fill after run | Fill after run | Fill after run | Fill after run | Fill after run | Fill after run |
-| Gaussian Naive Bayes | Fill after run | Fill after run | Fill after run | Fill after run | Fill after run | Fill after run |
-| Support Vector Machine | Fill after run | Fill after run | Fill after run | Fill after run | Fill after run | Fill after run |
+**Dataset DOI:** 10.24432/C50S4B
 
-### Observations on model performance
+## 4. Machine Learning Algorithms
 
-Write a short, evidence-based observation for each model after checking your `metrics_summary.csv`. Discuss the trade-off between the metrics, not only accuracy.
+The following five classification algorithms were implemented:
 
-- **Logistic Regression:** Add your observation from the measured test metrics.
-- **Decision Tree:** Add your observation from the measured test metrics.
-- **K-Nearest Neighbors:** Add your observation from the measured test metrics.
-- **Gaussian Naive Bayes:** Add your observation from the measured test metrics.
-- **Support Vector Machine:** Add your observation from the measured test metrics.
-- **Overall winner:** Identify the model with the strongest overall result and explain why, referring to more than one metric.
+1. Logistic Regression
+2. Decision Tree Classifier
+3. K-Nearest Neighbors (KNN)
+4. Gaussian Naive Bayes
+5. Support Vector Machine (SVM)
 
-## Project structure
+StandardScaler is included in pipelines for Logistic Regression, KNN, Gaussian Naive Bayes and SVM. The Decision Tree model is trained without feature scaling.
+
+## 5. Model Training and Evaluation
+
+The dataset was divided using a stratified train-test split.
+
+* Training data: 80%
+* Testing data: 20%
+* Random state: 42
+* AUC calculation: Macro One-vs-Rest
+* Precision: Macro average
+* Recall: Macro average
+* F1 Score: Macro average
+* MCC: Multiclass Matthews Correlation Coefficient
+
+All five models were evaluated using the same test dataset.
+
+## 6. Model Performance Comparison
+
+The following results were obtained from the executed notebook:
+
+| ML Model Name          |   Accuracy |        AUC |  Precision |     Recall |   F1 Score |        MCC |
+| ---------------------- | ---------: | ---------: | ---------: | ---------: | ---------: | ---------: |
+| Logistic Regression    |     0.9207 |     0.9948 |     0.9349 |     0.9314 |     0.9329 |     0.9042 |
+| Decision Tree          |     0.8884 |     0.9531 |     0.9038 |     0.9041 |     0.9036 |     0.8652 |
+| K-Nearest Neighbors    |     0.9166 |     0.9833 |     0.9320 |     0.9271 |     0.9293 |     0.8992 |
+| Gaussian Naive Bayes   |     0.8979 |     0.9916 |     0.9112 |     0.9092 |     0.9091 |     0.8773 |
+| Support Vector Machine | **0.9221** | **0.9949** | **0.9359** | **0.9330** | **0.9343** | **0.9059** |
+
+## 7. Model Performance Observations
+
+### Logistic Regression
+
+Logistic Regression achieved an accuracy of 92.07% and an F1 score of 93.29%. It demonstrated strong classification performance and an AUC of 0.9948.
+
+### Decision Tree
+
+Decision Tree achieved an accuracy of 88.84% and an F1 score of 90.36%. Among the five evaluated models, it recorded the lowest accuracy and F1 score.
+
+### K-Nearest Neighbors
+
+KNN achieved an accuracy of 91.66% and an F1 score of 92.93%. It provided competitive performance, with an AUC of 0.9833.
+
+### Gaussian Naive Bayes
+
+Gaussian Naive Bayes achieved an accuracy of 89.79% and an F1 score of 90.91%. Its AUC was 0.9916, indicating strong class discrimination despite its comparatively lower accuracy.
+
+### Support Vector Machine
+
+SVM achieved the highest accuracy of 92.21%, highest AUC of 0.9949 and highest F1 score of 93.43%. It also recorded the highest Precision, Recall and MCC among the five models.
+
+### Overall Best Model: Support Vector Machine
+
+Based on the evaluated metrics, SVM demonstrated the strongest overall performance. It achieved the highest accuracy, AUC, Precision, Recall, F1 Score and MCC in this experiment.
+
+## 8. Streamlit Application
+
+An interactive web application was developed using Streamlit.
+
+The application provides the following functionality:
+
+* Displays the performance comparison of all five trained models.
+* Allows users to upload a CSV test dataset.
+* Validates the uploaded feature columns and target column.
+* Loads the saved trained model pipelines.
+* Calculates Accuracy, AUC, Precision, Recall, F1 Score and MCC.
+* Displays confusion matrices for model evaluation.
+* Identifies the model with the highest macro F1 score.
+* Provides an option to download evaluation metrics as a CSV file.
+
+The application loads saved trained models and does not retrain models on uploaded test data.
+
+## 9. Project Structure
 
 ```text
-ML_Assignment_2_DryBean_Project/
+BITS_ML_Assignment_2/
+│
+├── data/
+│   └── test_data.csv
+│
+├── models/
+│   ├── decision_tree.joblib
+│   ├── gaussian_naive_bayes.joblib
+│   ├── k_nearest_neighbors.joblib
+│   ├── logistic_regression.joblib
+│   └── support_vector_machine.joblib
+│
+├── outputs/
+│   ├── metrics_summary.csv
+│   └── model_metadata.json
+│
+├── screenshots/
+│
+├── ML_Assignment_2.ipynb
+├── ML_Assignment_2_DryBean.ipynb
 ├── app.py
 ├── train_models.py
 ├── requirements.txt
-├── README.md
-├── test_data.csv                 # generated by train_models.py
-├── metrics_summary.csv           # generated by train_models.py
-├── model_metadata.json           # generated by train_models.py
-└── models/                       # five saved .joblib model pipelines
+└── README.md
 ```
 
-## Run locally / on BITS Virtual Lab
+## 10. Installation and Execution
+
+Install the required dependencies:
 
 ```bash
 python -m pip install -r requirements.txt
-python train_models.py
+```
+
+To run the Streamlit application:
+
+```bash
 streamlit run app.py
 ```
 
-The first run downloads the UCI dataset through `ucimlrepo`. Keep the generated `test_data.csv`, `metrics_summary.csv`, `model_metadata.json` and `models/` files in the repository.
+To retrain the models:
 
-## Streamlit Community Cloud
+```bash
+python train_models.py
+```
 
-1. Push the complete project to your own GitHub repository.
-2. Open https://streamlit.io/cloud and sign in with GitHub.
-3. Select **New app**, choose your repository and branch, and set the main file to `app.py`.
-4. Deploy and test the public app link in a private/incognito browser window.
-5. Add your real deployed URL below.
+The application loads the trained model files, metadata and evaluation metrics from their respective project folders.
 
-**Live Streamlit App Link:** Add your actual deployed URL here.
+## 11. GitHub Repository
 
-## BITS Virtual Lab evidence
+**Project Repository:**
 
-Run the training script and the Streamlit app in BITS Virtual Lab. Capture one genuine screenshot showing the assignment execution in the lab. Insert that screenshot into the final submission PDF.
+https://github.com/ritasamal410/BITS_ML_Assignment_2
 
-## Reproducibility notes
+## 12. Streamlit Deployment
 
-- Target column: `Class`
-- Split: stratified 80% training / 20% test
-- Random state: 42
-- AUC: macro one-vs-rest (OVR), appropriate for the seven-class classification problem
-- Precision, Recall and F1: macro averages
-- MCC: multiclass Matthews correlation coefficient
-- Uploaded test CSV must contain all 16 input columns and the `Class` target column.
-- The Streamlit app loads saved models and evaluates the uploaded test CSV; it does not retrain models on uploaded data.
+The application has been successfully tested locally using Streamlit.
+
+**Live Streamlit Application URL:** To be added after deployme
